@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Audio ÉVORA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="language-select">
+        <label for="lang">Escolha o seu idioma / Elige tu idioma / Choose your language / Choisissez votre langue:</label>
+        <select id="lang">
+            <option value="pt">Português</option>
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
+
+    <div id="mic-instructions">Haz clic para activar el micrófono</div>
+    <div id="message" class="centered-text"></div>
+    <canvas id="visualizer"></canvas>
+
+    <!-- Marca de agua en la esquina inferior derecha -->
+    <div class="marca-site">
+        <img src="sonora.png" alt="Marca Sonora" />
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
