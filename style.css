@@ -8,7 +8,8 @@ html, body {
   font-family: 'Figtree', sans-serif;
   background: linear-gradient(to top, #c116d3 0%, #f1f1f1 100%);
   transition: background 1.5s cubic-bezier(.4,0,.2,1);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Todos los textos en negro puro */
@@ -32,6 +33,7 @@ body, h1, h2, h3, h4, h5, h6, p, label, span, button, select, input, .centered-t
   z-index: 10;
   padding: 12px 20px;
   font-size: 0.95em;
+  background: none;
 }
 
 #language-select label {
@@ -61,6 +63,7 @@ body, h1, h2, h3, h4, h5, h6, p, label, span, button, select, input, .centered-t
   word-break: break-word;
   padding: 1.2em 1em;
   border-radius: 16px;
+  background: none;
 }
 
 canvas#visualizer {
@@ -92,6 +95,7 @@ canvas#visualizer.hidden {
   gap: 1em;
   padding: 1.5em 2em;
   min-width: 300px;
+  background: none;
 }
 
 .button-minimal {
@@ -183,37 +187,104 @@ canvas#visualizer.hidden {
   filter: grayscale(20%) drop-shadow(0 4px 8px rgba(0,0,0,0.15));
 }
 
-@media (max-width: 768px) {
+/* ----------- MOBILE OPTIMIZATION ----------- */
+@media (max-width: 600px) {
+  html, body {
+    min-width: 100vw;
+    width: 100vw;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+  }
   #language-select {
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 94vw;
-    font-size: 0.85em;
-    padding: 8px 12px;
-  }
-  .marca-site {
-    right: 15px;
-    bottom: 15px;
-  }
-  .marca-site img {
-    width: 70vw;
-    min-width: 240px;
-    max-width: 360px;
+    position: static;
+    width: 98vw;
+    margin: 0.5em auto 0.2em auto;
+    padding: 8px 2vw;
+    font-size: 1em;
+    text-align: center;
+    left: unset;
+    top: unset;
+    transform: none;
+    background: none;
   }
   .centered-text {
-    font-size: 1em;
-    max-width: 92vw;
-    padding: 1em 0.8em;
-    top: 6vh;
-  }
-  .controls {
-    top: 75vh;
-    min-width: 240px;
-    padding: 1.2em 1em;
+    position: static;
+    max-width: 98vw;
+    width: 98vw;
+    margin: 0.5em auto 0.2em auto;
+    padding: 1em 2vw;
+    font-size: 1.05em;
+    top: unset;
+    left: unset;
+    transform: none;
+    background: none;
   }
   canvas#visualizer {
-    top: 18vh;
-    height: 28vh;
+    position: static;
+    width: 98vw !important;
+    min-width: 0;
+    max-width: 100vw;
+    height: 22vh !important;
+    margin: 0 auto 1em auto;
+    display: block;
+    top: unset;
+    left: unset;
+    transform: none;
+  }
+  .controls {
+    position: static;
+    width: 98vw;
+    min-width: 0;
+    max-width: 100vw;
+    margin: 0 auto 1em auto;
+    padding: 1em 2vw;
+    top: unset;
+    left: unset;
+    transform: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7em;
+    background: none;
+  }
+  .recording-actions {
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+  }
+  .marca-site {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 1em 0 0 0;
+    right: unset;
+    bottom: unset;
+  }
+  .marca-site img {
+    width: 65vw !important;
+    min-width: 110px !important;
+    max-width: 200px !important;
+    margin: 0 auto;
+    display: block;
+  }
+  .modal-minimal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 92vw;
+    min-width: 0;
+    max-width: 96vw;
+    padding: 1.2em 2vw;
+    font-size: 1em;
+  }
+  .timer-minimal {
+    font-size: 1.25em;
+  }
+  .button-minimal {
+    font-size: 1em;
+    margin: 0 8px;
+    padding: 8px 0 3px 0;
   }
 }
