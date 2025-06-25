@@ -1,34 +1,42 @@
-<!DOCTYPE html >
-<html lang="es">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador de Audio ÉVORA</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Sonora - Registro Coletivo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="language-select">
-        <label for="lang">Escolha o seu idioma / Elige tu idioma / Choose your language / Choisissez votre langue:</label>
-        <select id="lang">
-            <option value="pt">Português</option>
-            <option value="es">Español</option>
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-        </select>
+  <div id="language-select">
+    <label for="lang">Escolha o seu idioma / Elige tu idioma / Choose your language / Choisissez votre langue:</label>
+    <select id="lang">
+      <option value="pt">Português</option>
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+    </select>
+  </div>
+  <div class="centered-text">
+    <span id="welcome-message"></span>
+  </div>
+  <canvas id="visualizer"></canvas>
+  <div class="controls">
+    <div class="timer-minimal" id="timer">00:00</div>
+    <div class="recording-actions">
+      <button class="button-minimal" id="recording-toggle"></button>
+      <button class="button-minimal hidden" id="pause-recording"></button>
+      <button class="button-minimal hidden" id="restart-recording"></button>
+      <button class="button-minimal hidden" id="play-recording"></button>
+      <button class="button-minimal hidden" id="send-recording"></button>
     </div>
-
-    <div id="mic-instructions">Haz clic para activar el micrófono</div>
-    <div id="message" class="centered-text"></div>
-    <canvas id="visualizer"></canvas>
-
-    <!-- Marca de agua en la esquina inferior derecha -->
-    <div class="marca-site">
-        <img src="sonora.png" alt="Marca Sonora" />
-    </div>
-
-    <script src="script.js"></script>
+  </div>
+  <div class="modal-minimal hidden" id="final-message">
+    <h2></h2>
+    <p></p>
+  </div>
+  <div class="marca-site">
+    <img src="sonora.png" alt="Sonora Logotipo">
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
