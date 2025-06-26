@@ -12,17 +12,8 @@ html, body {
   overflow-y: auto;
 }
 
-/* Todos los textos en negro puro */
 body, h1, h2, h3, h4, h5, h6, p, label, span, button, select, input, .centered-text, .modal-minimal, .modal-minimal h2, .modal-minimal p, .button-minimal, .timer-minimal {
   color: #000 !important;
-}
-
-.translucent-bg {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 16px;
-  box-shadow: none;
-  border: none;
 }
 
 #language-select {
@@ -151,7 +142,7 @@ canvas#visualizer.hidden {
   font-size: 1.1em;
   max-width: 90vw;
   min-width: 220px;
-  background: rgba(255,255,255,0.25); /* opacidad 25% */
+  background: rgba(255,255,255,0.25);
   box-shadow: none;
   border: none;
 }
@@ -188,7 +179,6 @@ canvas#visualizer.hidden {
   filter: grayscale(20%) drop-shadow(0 4px 8px rgba(0,0,0,0.15));
 }
 
-/* ----------- MOBILE OPTIMIZATION ----------- */
 @media (max-width: 600px) {
   html, body {
     min-width: 100vw !important;
