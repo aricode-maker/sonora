@@ -147,11 +147,11 @@ canvas#visualizer.hidden {
   padding: 2em 1.5em;
   border-radius: 18px;
   text-align: center;
-  z-index: 2100; /* aseguramos que SIEMPRE esté encima del logo */
+  z-index: 2100;
   font-size: 1.1em;
   max-width: 90vw;
   min-width: 220px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.97); /* Más opaco para tapar el logo */
   box-shadow: none;
   border: none;
 }
@@ -174,7 +174,7 @@ canvas#visualizer.hidden {
   position: fixed;
   right: 30px;
   bottom: 30px;
-  z-index: 1000; /* menor que el modal */
+  z-index: 1000;
   opacity: 0.85;
   pointer-events: none;
 }
