@@ -75,6 +75,7 @@ let isRecording = false, isPaused = false, isFinished = false;
 let recordedChunks = [];
 let startTime, timerInterval, audioPlayer;
 let showVisualizer = true;
+let animationFrameId = null;
 
 function updateUILanguage() {
   const lang = select.value;
@@ -97,7 +98,7 @@ window.addEventListener('resize', setupCanvas);
 
 function drawLines() {
   if (!analyser || !showVisualizer) return;
-  requestAnimationFrame(drawLines);
+  animationFrameId = requestAnimationFrame(drawLines);
   analyser.getByteTimeDomainData(dataArray);
   ctx.clearRect(0, 0, visualizer.width, visualizer.height);
   const centerY = visualizer.height / 2;
@@ -106,7 +107,6 @@ function drawLines() {
   ctx.shadowColor = "rgba(0,0,0,0.2)";
   ctx.shadowBlur = 30;
   ctx.globalAlpha = 0.85;
-  // Visualizador clásico
   const numLines = 32;
   const lineWidth = 3;
   const baseAmplitude = 80;
@@ -142,6 +142,7 @@ async function initAudio() {
   mediaRecorder.ondataavailable = e => recordedChunks.push(e.data);
   showVisualizer = true;
   visualizer.classList.remove('hidden');
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
   drawLines();
 }
 
@@ -177,6 +178,11 @@ function resetUI() {
   updateUILanguage();
   // MOSTRAR LOGOTIPO
   logoDiv.classList.remove('hidden');
+  // REINICIAR ANIMACIÓN
+  if (analyser && dataArray) {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    drawLines();
+  }
 }
 
 recordingToggle.addEventListener('click', async () => {
@@ -192,6 +198,11 @@ recordingToggle.addEventListener('click', async () => {
   recordedChunks = [];
   mediaRecorder.start();
   startTimer();
+  // REINICIAR ANIMACIÓN
+  if (analyser && dataArray) {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    drawLines();
+  }
 });
 
 pauseBtn.addEventListener('click', () => {
@@ -229,6 +240,8 @@ sendBtn.addEventListener('click', () => {
   restartBtn.classList.add('hidden');
   // OCULTAR LOGOTIPO
   logoDiv.classList.add('hidden');
+  // PARAR ANIMACIÓN
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
 });
 
 window.addEventListener('DOMContentLoaded', () => {
