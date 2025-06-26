@@ -68,6 +68,7 @@ const pauseBtn = document.getElementById('pause-recording');
 const playBtn = document.getElementById('play-recording');
 const sendBtn = document.getElementById('send-recording');
 const finalMessage = document.getElementById('final-message');
+const logoDiv = document.querySelector('.marca-site');
 
 let audioContext, analyser, dataArray, mediaRecorder, audioStream;
 let isRecording = false, isPaused = false, isFinished = false;
@@ -174,6 +175,8 @@ function resetUI() {
   finalMessage.classList.add('hidden');
   timerDisplay.textContent = "00:00";
   updateUILanguage();
+  // MOSTRAR LOGOTIPO
+  logoDiv.classList.remove('hidden');
 }
 
 recordingToggle.addEventListener('click', async () => {
@@ -224,6 +227,8 @@ sendBtn.addEventListener('click', () => {
   playBtn.classList.add('hidden');
   sendBtn.classList.add('hidden');
   restartBtn.classList.add('hidden');
+  // OCULTAR LOGOTIPO
+  logoDiv.classList.add('hidden');
 });
 
 window.addEventListener('DOMContentLoaded', () => {
