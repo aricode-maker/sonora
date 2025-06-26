@@ -141,8 +141,8 @@ canvas#visualizer.hidden {
 
 .modal-minimal {
   position: fixed;
-  top: 50%;
   left: 50%;
+  top: 62%;
   transform: translate(-50%, -50%);
   padding: 2em 1.5em;
   border-radius: 18px;
@@ -151,7 +151,7 @@ canvas#visualizer.hidden {
   font-size: 1.1em;
   max-width: 90vw;
   min-width: 220px;
-  background: rgba(255,255,255,0.97); /* Más opaco para tapar el logo */
+  background: rgba(255,255,255,0.25); /* opacidad 25% */
   box-shadow: none;
   border: none;
 }
@@ -270,16 +270,14 @@ canvas#visualizer.hidden {
     display: block !important;
   }
   .modal-minimal {
-    position: fixed !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    top: 68% !important;
     width: 90vw !important;
     max-width: 96vw !important;
     min-width: 0 !important;
     padding: 7vw 4vw !important;
     font-size: 1.05em !important;
     z-index: 2100 !important;
+    background: rgba(255,255,255,0.25) !important;
   }
   .timer-minimal {
     font-size: 1.25em !important;
